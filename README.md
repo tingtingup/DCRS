@@ -32,7 +32,7 @@ python pretrain_segmentation_network.py
 
 
 
-### joint training
+### Joint training
 
 In the fine-tuning phase, we concatenate the pre-trained networks G, S and R to form G-S and G-R branches, and jointly optimize two branches in an iterative manner 
 
