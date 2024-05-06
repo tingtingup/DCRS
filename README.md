@@ -24,13 +24,18 @@ pip install
 ### Pre-training and joint learning
 
 The segmentation network(S), registration network(R) and feature extraction network(G) are first pretrained individually based on the introduced ESDR:
+```shell
 python pretrain_feature_extraction_network.py
 python pretrain_registration_network.py
 python pretrain_segmentation_network.py
+```
 
 
 
 ### joint training
-python co_train.py
 
 In the fine-tuning phase, we concatenate the pre-trained networks G, S and R to form G-S and G-R branches, and jointly optimize two branches in an iterative manner 
+
+```shell
+python co_train.py
+```
