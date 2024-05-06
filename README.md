@@ -5,9 +5,10 @@
 
 
 ## Deep coupled registration and segmentation of multimodal whole-brain images
+![framework.jpg](https://github.com/tingtingup/DCRS/blob/main/framework.jpg)
 We introduce a deep learning framework for joint registration and segmentation of multi-modal brain images. Under this framework, registration and segmentation tasks are deeply coupled and collaborated at two hierarchical layers. In the inner layer, we establish a strong feature-level coupling between the two tasks by learning a uniffed common latent feature representation. In the outer layer, we introduce a mutually supervised dual-branch network to decouple latent features and facilitate task-level collaboration between registration and segmentation.
 
-！[framework.jpg] (https://github.com/tingtingup/DCRS/blob/main/framework.jpg)
+
 
 This is a Pytorch implementation
 ## Using the Code
