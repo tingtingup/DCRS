@@ -34,7 +34,7 @@ class Dataset(data.Dataset):
         self.image_pair = image_pair
 
     def read_fix(self, fixed_path):
-        datapath_label = '/home/amax/disk/tthan/SDF/fmost_ants_affine_resample/edt'
+        datapath_label = '/home/amax/disk/tthan/SDF/Fmost_generation_resample/edt'
         datapath_label_ = '/home/amax/disk/tthan/SDF/fmost_ants_affine_resample/edt'
         img = fixed_path.strip()
         info_brain = fixed_path.split('/')
@@ -57,7 +57,7 @@ class Dataset(data.Dataset):
             self.imgs.append([img, label, mask_label, name, mask_onehot])
 
     def read_moving(self, moving_path):
-        datapath_label_visor = '/home/amax/disk/tthan/SDF/visor_new_resample_affine/edt'
+        datapath_label_visor = '/home/amax/disk/tthan/SDF/visor_new_resample_affine_generation/edt'
         datapath_label_visor_ = '/home/amax/disk/tthan/SDF/visor_new_resample_affine/edt'
         img_visor = moving_path.strip()
         info_brain = moving_path.split('/')
@@ -82,9 +82,9 @@ class Dataset(data.Dataset):
         f_edt_l_path, fi_path, fi_seg_path, fi_name_visor, fi_seg_hot_path = self.image_pair[index]['moving']
 
         # x_path, y_path, mask, name, mask_onehot = self.image_pair[index]
-
         img_x = np.load(x_path)
         img_y = np.load(y_path)
+        # img_y = np.exp(-img_y)
         mask_ = np.load(mask)
         mask_onehot = np.load(mask_onehot)
         img_x = img_x[np.newaxis, ...]
@@ -102,6 +102,7 @@ class Dataset(data.Dataset):
         f_edt_l_1 = torch.from_numpy(f_edt_l_)
 
         fi_numpy = np.load(fi_path)
+        # fi_numpy = np.exp(-fi_numpy)
         fi_numpy_ = fi_numpy[np.newaxis, ...]
         fi_numpy_1 = torch.from_numpy(fi_numpy_)
 
@@ -237,7 +238,8 @@ class Fmost_Dataset(data.Dataset):
                     imgs.append([img, label])
                 else:
                     info_brain = info_brain[-2]
-                    label_name = 'Fmost_Affine_ants_affine_to_visor_' + info_brain + '_mask_hot.npy'
+                    # label_name = 'Fmost_Affine_ants_affine_to_visor_' + info_brain + '_mask_hot.npy'
+                    label_name = 'visor_new_resample_affine__' + info_brain + '_mask_hot.npy'
                     label = os.path.join(datapath_label_, label_name)
                     imgs.append([img, label])
         self.imgs = imgs
