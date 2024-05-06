@@ -30,7 +30,7 @@ from torchsummary import summary
 from lib.loss import *
 import lib.utils as utils
 import lib.transforms as med_transform
-import lib.datasets as med_data
+# import lib.datasets as med_data
 from lib.network_factory import get_network
 import lib.visualize as vis
 import lib.evalMetrics as metrics
@@ -76,9 +76,7 @@ class BaseExperiment():
         self.setup_log()
         self.setup_random_seed()
         self.setup_model()
-        # self.setup_loss()
         self.setup_train_data()
-        # self.setup_optimizer()
 
     def train(self, **kwargs):
         raise NotImplementedError()
