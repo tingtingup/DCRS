@@ -21,11 +21,14 @@ pip install scipy scikit-image matplotlib pandans
 pip install cv2
 pip install 
 ```
-##Pre-training and joint learning
-The segmentation network(S), registration network(R) and feature extraction network(G) are first pretrained individually based on the introduced ESDR
+#Pre-training and joint learning
+
+The segmentation network(S), registration network(R) and feature extraction network(G) are first pretrained individually based on the introduced ESDR:
 python pretrain_feature_extraction_network.py
 python pretrain_registration_network.py
 python pretrain_segmentation_network.py
+
+
 
 ### joint training
 python co_train.py
